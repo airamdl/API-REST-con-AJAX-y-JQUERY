@@ -1,6 +1,7 @@
 function agregarProducto() {
-    var nombre = document.getElementById('pro_nom').value;
     var id = document.getElementById('cat_id').value;
+    var nombre = document.getElementById('prod_nom').value;
+    
     
    
   
@@ -20,7 +21,7 @@ function agregarProducto() {
                     alert(response); 
                     obtenerProducto();
                 },
-                error: function( error) {
+                error: function(error) {
                     console.error('Error al insertar el producto:', error);
                     alert('Error al insertar el producto');
                 }
