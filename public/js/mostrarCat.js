@@ -1,4 +1,5 @@
 function obtenerCategorias() {
+    mostrar = document.getElementById('mostrar');
         $.ajax({
             url: '../../controller/categoria.php?op=GetAll', 
             type: 'GET',
@@ -22,4 +23,6 @@ function obtenerCategorias() {
             }
         });
 }
+
+obtenerCategorias();
 

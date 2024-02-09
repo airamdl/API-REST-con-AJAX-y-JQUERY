@@ -8,8 +8,8 @@
     <script src="./public/js/mostrarCat.js"></script>
 </head>
 <body>
-    <div id="categorias-container">
-        <!-- Aquí se mostrarán las categorías -->
+    <div id="categorias-container" onload="obtenerCategorias()">
+        <h3 class="mostrar"></h3>
     </div>
     
 </body>
