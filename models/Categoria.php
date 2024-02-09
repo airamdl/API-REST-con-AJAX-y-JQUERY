@@ -2,7 +2,7 @@
 /**
  * Class Categoria
  *
- * @author <NAME>
+ * @author airamdl
  */
 class Categoria extends Conectar {
 
@@ -46,7 +46,7 @@ class Categoria extends Conectar {
     public function insert_categoria($cat_nom, $cat_obs) {
         $conectar = parent::conexion();
         parent::set_names();
-        $sql = "INSERT INTO tm_categoria(cat_id, cat_nom, cat_obs, est) VALUES (NULL, ?, ?, '1');";
+        $sql = "INSERT INTO tm_categoria(cat_nom, cat_obs, est) VALUES (?, ?, '1');";
         $sql = $conectar->prepare($sql);
         $sql->bindValue(1, $cat_nom);
         $sql->bindValue(2, $cat_obs);

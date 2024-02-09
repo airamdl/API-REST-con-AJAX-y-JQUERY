@@ -1,5 +1,6 @@
 
 
+
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
@@ -48,6 +49,32 @@ INSERT INTO `tm_categoria` (`cat_id`, `cat_nom`, `cat_obs`, `est`) VALUES
 (9, 'Envio Desde Postman', 'Envio Obs Postman', 0),
 (10, 'Envio Desde Postman2', 'Envio Obs Postman2', 0),
 (11, 'Envio Desde Postman2', 'Envio Obs Postman2', 1);
+
+
+--
+
+-- Tabla productos 
+CREATE TABLE `tm_producto` (
+  `prod_id` int(11) NOT NULL AUTO_INCREMENT,
+  `cat_id` int(11) NOT NULL,
+  `prod_nom` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
+  `est` int(11) NOT NULL,
+  PRIMARY KEY (`prod_id`),
+  CONSTRAINT `fk_tm_producto_tm_categoria` FOREIGN KEY (`cat_id`) REFERENCES `tm_categoria` (`cat_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+
+
+INSERT INTO tm_producto (cat_id, prod_nom, est) VALUES (1, 'Smart TV 55"', 1);
+INSERT INTO tm_producto (cat_id, prod_nom, est) VALUES (2, 'Refrigerador Doble Puerta', 1);
+
+SELECT p.prod_id, p.prod_nom, c.cat_nom AS cat_nombre
+FROM tm_producto p
+JOIN tm_categoria c ON p.cat_id = c.cat_id;
+
+
+--
+
 
 --
 -- Índices para tablas volcadas
