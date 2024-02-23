@@ -1,25 +1,28 @@
+let mostrarD = false;
 function obtenerCategorias() {
-    mostrar = document.getElementById('mostrar');
+        // Obtiene el elemento donde se mostrarán las categorías
+        mostrar = document.getElementById("verCat");
+
+        // Realiza una solicitud AJAX utilizando jQuery
         $.ajax({
-            url: '../../controller/categoria.php?op=GetAll', 
-            type: 'GET',
+            url: '../../controller/categoria.php?op=GetAll',
+            method: 'GET',
             dataType: 'json',
-            success: function(response) {
-                
-                if (response) {
-                   
-                    var categoriasHTML = '<ul>';
-                    $.each(response, function(index, categoria) {
-                        categoriasHTML += '<li>' + categoria.cat_nom + '</li>';
-                    });
-                    categoriasHTML += '</ul>';
-                    $('#categorias').html(categoriasHTML);
+            success: function (data) {
+                // Muestra las categorías obtenidas del servidor si el botón de visualización está activado,
+                // de lo contrario, limpia el contenido de la sección de visualización
+                if (!mostrarD) {
+                    mostrar.innerHTML += "CATEGORÍAS:<br>";
+                    mostrar.innerHTML += JSON.stringify(data);
+                    mostrarD = true;
                 } else {
-                    console.log('No se encontraron categorías.');
+                    mostrar.innerHTML = "";
+                    mostrarD = false;
                 }
             },
-            error: function(xhr, status, error) {
-                console.error('Error al obtener las categorías:', error);
+            error: function (error) {
+                // Maneja los errores de la solicitud AJAX
+                alert('Error al cargar categorías:', error);
             }
         });
 }

@@ -1,6 +1,6 @@
 function obtenerProducto() {
     $.ajax({
-        url: '../../controller/producto.php?op=GetAll', // Asegúrate de cambiar 'ruta/al/controlador.php' por la ruta correcta
+        url: '../../controller/producto.php?op=GetAll', 
         type: 'GET',
         dataType: 'json',
         success: function(response) {

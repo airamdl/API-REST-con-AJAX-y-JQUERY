@@ -21,6 +21,10 @@
         <input type="text" id="cat_obs" name="cat_obs">
         <button onclick="agregarCategoria()">Agregar Categoría</button>
     </div>
+    <fieldset>
+        <legend>Jquery</legend>
+       <textarea id="respuesta"></textarea>
+    </fieldset>
 
     <div>
         <h3 class="categoria"></h3>

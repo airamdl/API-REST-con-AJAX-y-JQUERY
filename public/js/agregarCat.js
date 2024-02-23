@@ -21,6 +21,7 @@ function agregarCategoria() {
         success: function(response) {
             
             alert('Categoría agregada correctamente');
+            $('#respuesta').text('Se agrego correctamente');
 
             //actualizar la lista de categorías
             obtenerCategorias();
@@ -30,6 +31,7 @@ function agregarCategoria() {
         error: function(error) {
             console.error('Error al agregar la categoría:', error);
             alert('Error al agregar la categoría. Por favor, inténtalo de nuevo.');
+            $('#respuesta').text('Error al agregar la categoría');
         }
     });
 }
